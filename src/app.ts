@@ -1,7 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
 import Route from 'routes'
 import 'utils/prototype'
-import 'express-async-errors'
+
 class App {
   public app: Application
   constructor() {
@@ -23,7 +23,7 @@ class App {
     this.app.get('/', (req: Request, res: Response): Response => res.send('Hello World'))
     this.app.use('/api/v1', Route)
     this.app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
-      res.status(500).json(err.message)
+      res.status(500).json(err)
       next(err)
     })
   }

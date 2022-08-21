@@ -1,14 +1,10 @@
-import { Router } from 'express'
-import userRoute from './userRoute'
+import BaseRoute from './_BaseRoute'
+import * as router from './_Routers'
 
-class Route {
-  public router: Router
-  constructor() {
-    this.router = Router()
-    this.routes()
-  }
-  private routes(): void {
-    this.router.use('/users', userRoute)
+class Route extends BaseRoute {
+  protected routes(): void {
+    this.router.use('/auth', router.authRoute)
+    this.router.use('/users', router.userRoute)
   }
 }
 

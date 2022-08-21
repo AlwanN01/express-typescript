@@ -1,15 +1,13 @@
-import { Router } from 'express'
-import userController from 'controllers/userController'
+import BaseRoute from './_BaseRoute'
+import userControl from 'controllers/userControl'
 
-class UserRoute {
-  public router: Router
-  constructor() {
-    this.router = Router()
-    this.routes()
-  }
-  private routes(): void {
-    this.router.get('/', userController.index)
-    this.router.post('/', userController.create)
+class UserRoute extends BaseRoute {
+  protected routes(): void {
+    this.router.get('/', userControl.index)
+    this.router.post('/', userControl.create)
+    this.router.get('/:id', userControl.show)
+    this.router.put('/:id', userControl.update)
+    this.router.delete('/:id', userControl.delete)
   }
 }
 

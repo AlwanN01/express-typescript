@@ -1,11 +1,9 @@
-import IController from 'types/IController'
-
-class UserController implements IController {
-  index(req: Req, res: Res) {
-    res.send(`endpoint of users `)
+class AuthControl implements IController {
+  index(req: Req, res: Res): void {
+    res.send('index')
   }
   create(req: Req, res: Res): void {
-    res.send(req.body)
+    res.send('create')
   }
   show(req: Req, res: Res): void {
     throw new Error('Method not implemented.')
@@ -17,5 +15,4 @@ class UserController implements IController {
     throw new Error('Method not implemented.')
   }
 }
-
-export default new UserController()
+export default new AuthControl()

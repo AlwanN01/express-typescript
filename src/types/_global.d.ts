@@ -4,9 +4,10 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production'
-      PORT?: string
+      PORT?: number
       HOST: string
       NAME: string
+      PORT_DB: number
       USER: string
       PASSWORD: string
     }
@@ -19,7 +20,16 @@ declare global {
   }
   type Req = Request
   type Res = Response
+  type Next = NextFunction
   type RH = (req: Request, res: Response, next?: NextFunction) => void //request handler
+
+  interface IController {
+    index(req: Req, res: Res): void
+    create(req: Req, res: Res): void
+    show(req: Req, res: Res): void
+    update(req: Req, res: Res): void
+    delete(req: Req, res: Res): void
+  }
 }
 
 export {}
