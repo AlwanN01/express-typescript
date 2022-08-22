@@ -1,4 +1,4 @@
-import userData from 'data/userData'
+import userData from 'db/userData'
 import { UserData } from 'types/data'
 
 class UserControl implements IController {
